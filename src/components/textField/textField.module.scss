@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    .label {
+        color: var(---, #6E7686);
+        /* Тело текст/B2 */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .inputContainer {
+        position: relative;
+        display: flex;
+        width: 430px;
+        height: 56px;
+        align-items: center;
+        background: var(---, #F6F6F9);
+
+        .input {
+            all: unset;
+            width: 430px;
+            height: 56px;
+            padding: 17px 18px;
+            color: var(---, #272A33);
+
+            &::placeholder {
+                color: var(---, #D4D7DB);
+            }
+        }
+
+        .showPassword {
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 18px;
+        }
+    }
+}
