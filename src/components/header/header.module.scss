@@ -2,8 +2,10 @@
     display: flex;
     padding: 16px 135px;
     align-items: center;
-    gap: 205px;
+    // gap: 205px;
+    justify-content: space-between;
     border-bottom: 1px solid var(--border, #EDEDF4);
+
 
     .nav {
         display: flex;
