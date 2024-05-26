@@ -28,7 +28,5 @@ const slice = createSlice({
     }
 })
 
-// Создаем reducer с помощью slice
 export const authReducer = slice.reducer;
-// Action creator также достаем с помощью slice
 export const authActions = slice.actions
