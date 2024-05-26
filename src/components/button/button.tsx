@@ -5,7 +5,7 @@ import styles from './button.module.scss'
 export type ButtonProps<T extends ElementType = 'button'> = {
     as?: T
     fullWidth?: boolean
-    variant?: 'blue' | 'link' | 'text' | 'white'
+    variant?: 'blue' | 'link' | 'text' | 'white' | 'link'
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
