@@ -1,11 +1,12 @@
 import { ChangeEvent, ComponentProps, forwardRef, useState } from 'react'
 
-import { clsx } from 'clsx'
 
 import styles from './textField.module.scss'
 import { Typography } from '../typography'
 import closedEye from "@/assets/icons/closedEye.svg"
 import openedEye from "@/assets/icons/openedEye.svg"
+import searchIcon from "@/assets/icons/searchIcon.svg"
+import closeIcon from "@/assets/icons/closeIcon.svg"
 
 
 
@@ -14,6 +15,7 @@ export type Props = {
     errorMessage?: string
     label?: string
     onValueChange?: (value: string) => void
+    variant?: "default" | "password" | "search"
 } & ComponentProps<'input'>
 
 export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
@@ -24,6 +26,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
         onValueChange,
         placeholder,
         type,
+        variant = "default",
         ...restProps
     } = props
 
@@ -33,31 +36,25 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
 
     const [showPassword, setShowPassword] = useState<boolean>(false)
 
-    const isShowPasswordButtonShown = type === 'password'
-
     return (
-        <div className={styles.container}>
-            <Typography as={'label'} variant={'body2'} className={styles.label}>
+        <div className={styles.container + ' ' + className}>
+            <Typography as={'label'} variant={'body2'} >
                 {label}
             </Typography>
-            <div className={styles.inputContainer}>
+            <div className={styles.inputContainer + ' ' + className} >
+                {variant === "search" && <img src={searchIcon} />}
                 <input
-                    className={styles.input}
+                    className={styles.input + ' ' + className}
                     onChange={onChangeTitle}
                     placeholder={placeholder}
                     ref={ref}
                     {...restProps}
                 />
-                {isShowPasswordButtonShown && (
-                    <button
-                        className={styles.showPassword}
-                        onClick={() => setShowPassword(prev => !prev)}
-                        type={'button'}
-                    >
-                        {showPassword ? <img src={openedEye} /> : <img src={closedEye} />}
-                    </button>
-                )}
+                {variant === "search" && <img src={closeIcon} />}
+                {variant === 'password' &&
+                    <img src={showPassword ? openedEye : closedEye}
+                        onClick={() => setShowPassword(prev => !prev)} className={styles.showPassword} />}
             </div>
-        </div>
+        </div >
     )
 })
