@@ -16,12 +16,13 @@ const publicRoutes: RouteObject[] = [
 const privateRoutes: RouteObject[] = [
     {
         path: '/',
-        element: <TableSystem />,
-    },
-    {
-        path: '/profile',
         element: <Profile />,
     },
+    {
+        path: '/tableSystem',
+        element: <TableSystem />,
+    },
+
 ]
 
 

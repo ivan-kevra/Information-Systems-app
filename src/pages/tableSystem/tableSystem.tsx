@@ -1,3 +1,80 @@
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
+import styles from "./tableSystem.module.scss"
+import { Link } from "react-router-dom"
+import { ArrowLeft } from "@/assets/icons/arrowLeft"
+import { Typography } from "@/components/typography"
+import { useState } from "react"
+import { TextField } from "@/components/textField"
+import { Button } from "@/components/button"
+import openedEye from "@/assets/icons/openedEye.svg"
+import infoIcon from "@/assets/icons/infoIcon.svg"
+import plusIcon from "@/assets/icons/plusIcon.svg"
+import gridIcon from "@/assets/icons/gridIcon.svg"
+import sortIcon from "@/assets/icons/sortIcon.svg"
+
+
 export const TableSystem = () => {
-    return <div>TableSystem</div>
+
+    const [activeItem, setActiveItem] = useState("Реестры")
+
+    const changeActiveItem = (item: string) => {
+        setActiveItem(item)
+    }
+
+    return <div className={styles.container}>
+        <Header />
+        <div className={styles.menu}>
+            <div className={styles.links}>
+                <Link to="/" className={styles.link}>
+                    <ArrowLeft />
+                    Главная
+                </Link>
+                <Link to="/" className={styles.activeLink}>
+                    <ArrowLeft color={"#272A33"} />
+                    Личный кабинет
+                </Link>
+            </div>
+            <nav className={styles.navigation}>
+                <Typography variant="h2">Личный кабинет</Typography>
+                <ol className={styles.ol}>
+                    <li className={activeItem === "Реестры" ? styles.activeLi : styles.li} onClick={() => changeActiveItem("Реестры")}>Реестры</li>
+                    <li className={activeItem === "Электронные сервисы" ? styles.activeLi : styles.li} onClick={() => changeActiveItem("Электронные сервисы")}>Электронные сервисы</li>
+                    <li className={activeItem === "Потребление данных" ? styles.activeLi : styles.li} onClick={() => changeActiveItem("Потребление данных")}>Потребление данных</li>
+                    <li className={activeItem === "Справочники" ? styles.activeLi : styles.li} onClick={() => changeActiveItem("Справочники")}>Справочники</li>
+                    <li className={activeItem === "Отчёты" ? styles.activeLi : styles.li} onClick={() => changeActiveItem("Отчёты")}>Отчёты</li>
+                </ol>
+            </nav>
+
+        </div>
+        <div className={styles.tableContainer}>
+            <div className={styles.searchContainer}>
+                <TextField
+                    className={styles.input}
+                    label={"Выбор ИС/СР для внесения метаданных"}
+                    placeholder={"Выберите ИС/СР для внесения метаданных..."}
+                    variant="search" />
+                <Button className={styles.button}>Показать</Button>
+            </div>
+            <div className={styles.buttonsContainer}>
+                <div className={styles.buttons}>
+                    <Button variant="white" className={styles.button}><img src={openedEye} />Просмотр ИС/ИР</Button>
+                    <Button variant="white" className={styles.secondButton}><img src={infoIcon} />Доп сведения ИС/ИР</Button>
+                    <Button className={styles.addButton}><img src={plusIcon} />Добавить</Button>
+                </div>
+                <div className={styles.icons}>
+                    <img src={gridIcon} />
+                    <img src={sortIcon} />
+                </div>
+            </div>
+            <div className={styles.table}>
+                <div className={styles.tableHeader}>
+
+                </div>
+
+            </div>
+
+        </div>
+        <Footer />
+    </div >
 }
