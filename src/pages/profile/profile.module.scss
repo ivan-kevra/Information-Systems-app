@@ -2,7 +2,6 @@
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   .header {
@@ -84,6 +83,10 @@
           width: 90%;
         }
       }
+    }
+    .saveButton {
+      width: 270px;
+      height: 56px;
     }
   }
 }

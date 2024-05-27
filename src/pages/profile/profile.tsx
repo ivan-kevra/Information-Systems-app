@@ -100,8 +100,8 @@ export const Profile = () => {
             </div>
           </div>
         </div>
+        <Button className={styles.saveButton}>Сохранить</Button>
       </div>
-
       <Footer />
     </div>
   )
