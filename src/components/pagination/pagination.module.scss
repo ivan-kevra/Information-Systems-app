@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 40px;
   .table {
     display: flex;
     flex-direction: column;
@@ -74,6 +75,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(---1, #676a71);
+
+  /* Тело текст/B1 */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 .activeButton {
   width: 40px;
@@ -85,4 +94,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(---, #fff);
+
+  /* Тело текст/B1 */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }

@@ -75,12 +75,15 @@ export const TableSystem = () => {
       </div>
       <div className={styles.tableContainer}>
         <div className={styles.searchContainer}>
-          <TextField
-            className={styles.input}
-            label={'Выбор ИС/СР для внесения метаданных'}
-            placeholder={'Выберите ИС/СР для внесения метаданных...'}
-            variant={'search'}
-          />
+          <div className={styles.inputContainer}>
+            <Typography variant={'s1'}>Выбор ИС/СР для внесения метаданных</Typography>
+            <TextField
+              className={styles.input}
+              placeholder={'Выберите ИС/СР для внесения метаданных...'}
+              variant={'search'}
+            />
+          </div>
+
           <Button className={styles.button}>Показать</Button>
         </div>
         <div className={styles.buttonsContainer}>

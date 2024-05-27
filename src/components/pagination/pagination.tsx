@@ -198,7 +198,7 @@ const Buttons = () => {
         onClick={() => setCurrentPage(1)}
         variant={'text'}
       >
-        <DoubleArrowLeft />
+        <DoubleArrowLeft color={currentPage === 1 ? '#D4D7DB' : '#676A71'} />
       </Button>
       <Button
         className={styles.button}
@@ -206,7 +206,7 @@ const Buttons = () => {
         onClick={() => setCurrentPage(currentPage - 1)}
         variant={'text'}
       >
-        <ArrowLeft />
+        <ArrowLeft color={currentPage === 1 ? '#D4D7DB' : '#676A71'} />
       </Button>
       {visibleNumbers.map((number, index) => {
         if (number === ellipsisValue) {
@@ -234,7 +234,7 @@ const Buttons = () => {
         onClick={() => setCurrentPage(currentPage + 1)}
         variant={'text'}
       >
-        <ArrowRight />
+        <ArrowRight color={currentPage === pagesAmount ? '#D4D7DB' : '#676A71'} />
       </Button>
       <Button
         className={styles.button}
@@ -242,7 +242,7 @@ const Buttons = () => {
         onClick={() => setCurrentPage(pagesAmount)}
         variant={'text'}
       >
-        <DoubleArrowRight />
+        <DoubleArrowRight color={currentPage === pagesAmount ? '#D4D7DB' : '#676A71'} />
       </Button>
     </div>
   )
