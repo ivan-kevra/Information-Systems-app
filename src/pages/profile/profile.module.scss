@@ -1,0 +1,101 @@
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 80px 135px;
+    .links {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+
+      .link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(---1, #676a71);
+      }
+
+      .activeLink {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(---, #272a33);
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0px 135px;
+    width: 100%;
+    .photoAndName {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .name {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .button {
+          width: 118px;
+          padding: 5px 10px;
+          color: var(---, #fff);
+
+          /* Тело текст/B2 */
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+    }
+    .profileData {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .profileDataHeader {
+        width: 89.5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+        .names {
+          display: flex;
+          align-items: flex-start;
+          gap: 30px;
+          width: 90%;
+        }
+      }
+    }
+  }
+}
+
+.yellowText {
+  padding: 5px 10px;
+  gap: 10px;
+  color: var(---, #22b07d);
+  border-radius: 5px;
+  background: #eafbf5;
+  width: 89px;
+}
+.oneInput {
+  width: 43.5%;
+}
