@@ -1,0 +1,88 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    .tableHeader {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .tableHeaderButtons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    .tableContent {
+      width: 100%;
+
+      .tr {
+        display: flex;
+        justify-content: space-between;
+        .title {
+          width: 70%;
+
+          .text {
+            white-space: nowrap; /* Запрещаем перенос строк */
+            overflow: hidden; /* Обрезаем все, что не помещается в область */
+            text-overflow: ellipsis;
+          }
+        }
+        .td {
+          width: 8%;
+          display: flex;
+          padding: 10px;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 5px;
+          border-radius: 2px;
+          background: var(---, #fff);
+
+          .blueText {
+            color: var(---40, #13a3b9);
+          }
+        }
+      }
+    }
+  }
+  .button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 4px;
+    border: 1px solid var(---, #ededf4);
+  }
+}
+
+.button {
+  width: 40px;
+  height: 40px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.activeButton {
+  width: 40px;
+  height: 40px;
+  padding: 5px 10px;
+  color: var(---, #fff);
+  border-radius: 5px;
+  background: var(---40, #13a3b9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
