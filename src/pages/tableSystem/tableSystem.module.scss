@@ -1,155 +1,146 @@
 .container {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  .menu {
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 80px 135px;
 
-    .menu {
+    .links {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+
+      .link {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-        padding: 80px 135px;
+        align-items: center;
+        text-decoration: none;
+        color: var(---1, #676a71);
+      }
 
-        .links {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-
-            .link {
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                color: var(---1, #676A71);
-            }
-
-            .activeLink {
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                color: var(---, #272A33);
-
-            }
-        }
-
-        .navigation {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-
-            .ol {
-                display: flex;
-                align-items: flex-start;
-                list-style: none;
-
-                .activeLi {
-                    display: flex;
-                    height: 48px;
-                    padding: 10px 20px;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 10px;
-                    color: var(---40, #13A3B9);
-                    border-bottom: 2px solid var(---40, #13A3B9);
-                    font-family: Inter;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: normal;
-                    cursor: pointer;
-                }
-
-                .li {
-                    cursor: pointer;
-                    display: flex;
-                    height: 48px;
-                    padding: 10px 20px;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 10px;
-                    color: var(---, #6E7686);
-                    /* Подзаголовок/S2 */
-                    font-family: Inter;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: normal;
-                }
-
-
-            }
-        }
+      .activeLink {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(---, #272a33);
+      }
     }
 
-    .tableContainer {
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      .ol {
         display: flex;
-        padding: 80px 135px;
-        flex-direction: column;
         align-items: flex-start;
-        gap: 40px;
+        list-style: none;
 
-        .searchContainer {
-            display: flex;
-            align-items: flex-end;
-
-            .input {
-                width: 668px;
-            }
-
-            .button {
-                width: 170px;
-                height: 61px;
-                border-radius: 0px 10px 10px 0px;
-            }
+        .activeLi {
+          display: flex;
+          height: 48px;
+          padding: 10px 20px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          color: var(---40, #13a3b9);
+          border-bottom: 2px solid var(---40, #13a3b9);
+          font-family: Inter;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          cursor: pointer;
         }
 
-        .buttonsContainer {
-            display: flex;
-            align-items: center;
-            gap: 566px;
-
-            .buttons {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-
-                .button {
-                    width: 169px;
-                    padding: 5px 10px;
-                }
-
-                .secondButton {
-                    width: 195px;
-                    padding: 5px 10px;
-                }
-
-                .addButton {
-                    width: 116px;
-                    padding: 5px 10px;
-                    color: var(---, #FFF);
-                    font-size: 14px;
-                    font-weight: 500;
-                }
-            }
-
-            .icons {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-
-                .icon {}
-            }
+        .li {
+          cursor: pointer;
+          display: flex;
+          height: 48px;
+          padding: 10px 20px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          color: var(---, #6e7686);
+          /* Подзаголовок/S2 */
+          font-family: Inter;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
         }
-
-        .table {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-        }
+      }
     }
+  }
+
+  .tableContainer {
+    display: flex;
+    padding: 80px 135px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+
+    .searchContainer {
+      display: flex;
+      align-items: flex-end;
+
+      .input {
+        width: 668px;
+      }
+
+      .button {
+        width: 170px;
+        height: 61px;
+        border-radius: 0px 10px 10px 0px;
+      }
+    }
+
+    .buttonsContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .buttons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .button {
+          width: 169px;
+          padding: 5px 10px;
+        }
+
+        .secondButton {
+          width: 195px;
+          padding: 5px 10px;
+        }
+
+        .addButton {
+          width: 116px;
+          padding: 5px 10px;
+          color: var(---, #fff);
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+
+      .icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .icon {
+        }
+      }
+    }
+  }
 }

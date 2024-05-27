@@ -1,15 +1,15 @@
 html {
-    box-sizing: border-box;
-    font-size: 100%;
+  box-sizing: border-box;
+  font-size: 100%;
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 input,
@@ -18,42 +18,39 @@ select,
 textarea,
 optgroup,
 option {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    font-style: inherit;
-    color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
 }
 
 a:visited {
-    color: inherit;
+  color: inherit;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    font-family: "Inter";
-    line-height: var(--line-height-m);
-    color: var(--typography, #6E7686);
+  font-family: 'Inter';
+  line-height: var(--line-height-m);
+  color: var(--typography, #6e7686);
 
-    background: var(--background, #FFF);
-    overflow-x: hidden;
+  background: var(--background, #fff);
+  overflow-x: hidden;
 }
 
 p {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
+nav,
+table,
+tr,
+td,
+li,
 ol {
-    all: unset
-}
-
-li {
-    all: unset
-}
-
-nav {
-    all: unset
+  all: unset;
 }
