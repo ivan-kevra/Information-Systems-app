@@ -1,12 +1,15 @@
-import { Header } from '@/components/header'
-import styles from './mainPage.module.scss'
-import { Footer } from '@/components/footer'
-import { Typography } from '@/components/typography'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppRootStateType } from '@/app/store'
 import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import { AppRootStateType } from '@/app/store'
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
+import { Typography } from '@/components/typography'
 import { jwtDecode } from 'jwt-decode'
+
+import styles from './mainPage.module.scss'
+
 import { authActions } from '../login/login.slice'
 
 export const MainPage = () => {
@@ -14,6 +17,7 @@ export const MainPage = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
+
     if (token) {
       const decoded: any = jwtDecode(token)
       const expirationDate = new Date(decoded.exp * 1000)
@@ -53,7 +57,7 @@ export const MainPage = () => {
             Профиль
           </Link>
           {isAuthenticated && (
-            <Link className={styles.link} to={'/profile'} onClick={logout}>
+            <Link className={styles.link} onClick={logout} to={'/login'}>
               Выйти из аккаунта
             </Link>
           )}

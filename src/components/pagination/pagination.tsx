@@ -15,7 +15,15 @@ import { Button } from '../button'
 import { Typography } from '../typography'
 
 export const Pagination = () => {
-  const [activeTableItem, setActiveTableItem] = useState(25)
+  const [itemsForPage, setItemsForPage] = useState(9)
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const itemsList = [...AisList, ...AisList, ...AisList]
+
+  const pagesAmount = Math.ceil(itemsList.length / itemsForPage)
+
+  const lastIndex: number = currentPage * itemsForPage
+  const firstIndex: number = lastIndex - itemsForPage
 
   return (
     <div className={styles.container}>
@@ -25,22 +33,41 @@ export const Pagination = () => {
           <div className={styles.tableHeaderButtons}>
             <Typography variant={'b1'}>Показывать по:</Typography>
             <Button
-              className={activeTableItem === 25 ? styles.activeButton : styles.button}
-              onClick={() => setActiveTableItem(25)}
+              className={itemsForPage === 9 ? styles.activeButton : styles.button}
+              onClick={() => {
+                setItemsForPage(9)
+                setCurrentPage(1)
+              }}
+              variant={'white'}
+            >
+              9
+            </Button>
+            <Button
+              className={itemsForPage === 25 ? styles.activeButton : styles.button}
+              onClick={() => {
+                setItemsForPage(25)
+                setCurrentPage(1)
+              }}
               variant={'white'}
             >
               25
             </Button>
             <Button
-              className={activeTableItem === 50 ? styles.activeButton : styles.button}
-              onClick={() => setActiveTableItem(50)}
+              className={itemsForPage === 50 ? styles.activeButton : styles.button}
+              onClick={() => {
+                setCurrentPage(1)
+                setItemsForPage(50)
+              }}
               variant={'white'}
             >
               50
             </Button>
             <Button
-              className={activeTableItem === 100 ? styles.activeButton : styles.button}
-              onClick={() => setActiveTableItem(100)}
+              className={itemsForPage === 100 ? styles.activeButton : styles.button}
+              onClick={() => {
+                setItemsForPage(100)
+                setCurrentPage(1)
+              }}
               variant={'white'}
             >
               100
@@ -49,7 +76,7 @@ export const Pagination = () => {
         </div>
         <table className={styles.tableContent}>
           <tbody>
-            {AisList.map((item, index) => {
+            {itemsList.slice(firstIndex, lastIndex).map((item, index) => {
               return (
                 <tr className={styles.tr} key={index}>
                   <td className={styles.title}>
@@ -84,16 +111,22 @@ export const Pagination = () => {
           </tbody>
         </table>
       </div>
-      <Buttons />
+      <Buttons
+        currentPage={currentPage}
+        pagesAmount={pagesAmount}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   )
 }
 
-const Buttons = () => {
-  const pagesAmount = 11
+type ButtonsProps = {
+  currentPage: number
+  pagesAmount: number
+  setCurrentPage: (page: number) => void
+}
+const Buttons = ({ currentPage, pagesAmount, setCurrentPage }: ButtonsProps) => {
   const numbers = Array.from({ length: pagesAmount }, (_, i) => i + 1)
-
-  const [currentPage, setCurrentPage] = useState(1)
 
   const visiblePages = 7
   const ellipsisValue = -1

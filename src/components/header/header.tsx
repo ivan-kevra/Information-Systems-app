@@ -1,14 +1,17 @@
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import { AppRootStateType } from '@/app/store'
 import arrowDown from '@/assets/icons/arrowDown.svg'
+import blueNotifications from '@/assets/icons/blueNotifications.svg'
 import logo from '@/assets/icons/logo.svg'
 import notifications from '@/assets/icons/notifications.svg'
+import photo from '@/assets/icons/photo.svg'
 import userPhoto from '@/assets/icons/userPhoto.svg'
 
 import styles from './header.module.scss'
 
 import { Typography } from '../typography'
-import { useSelector } from 'react-redux'
-import { AppRootStateType } from '@/app/store'
-import { Link } from 'react-router-dom'
 export const Header = () => {
   const isAuthenticated = useSelector((state: AppRootStateType) => state.auth.isAuthenticated)
   const name = useSelector((state: AppRootStateType) => state.profile.name)
@@ -23,17 +26,26 @@ export const Header = () => {
         <Typography variant={'body1'}>Об АИС</Typography>
       </div>
       <div className={styles.profileAndNotifications}>
-        <img src={notifications} />
+        {isAuthenticated ? (
+          <div className={styles.notesContainer}>
+            <Typography className={styles.notesText} variant={'body1'}>
+              4
+            </Typography>
+            <img src={blueNotifications} />
+          </div>
+        ) : (
+          <img src={notifications} />
+        )}
         <div className={styles.line}></div>
 
         <div className={styles.profile}>
-          <img src={userPhoto} />
+          {isAuthenticated ? <img className={styles.photo} src={photo} /> : <img src={userPhoto} />}
           {isAuthenticated ? (
             <Typography variant={'body1'}>
               {name} {familyName}
             </Typography>
           ) : (
-            <Link to={'/login'} style={{ textDecoration: 'none' }}>
+            <Link style={{ textDecoration: 'none' }} to={'/login'}>
               <Typography variant={'body1'}>Вход в аккаунт</Typography>
             </Link>
           )}
