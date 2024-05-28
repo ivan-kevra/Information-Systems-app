@@ -1,45 +1,50 @@
 button {
-    all: unset;
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
 }
 
 .blue {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background: var(---40, #13A3B9);
-    color: var(---, #FFF);
-    font-size: 18px;
-    font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: var(---40, #13a3b9);
+  color: var(---, #fff);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .link {
-    font-size: 14px;
-    font-style: normal;
-    line-height: normal;
-    text-decoration: none;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  text-decoration: none;
 }
 
 .text {
-    color: var(---40, #13A3B9);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: var(---40, #13a3b9);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  &:focus-visible {
+    outline: 2px solid blue;
+  }
 }
 
 .white {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid var(---, #A7B4CC);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: normal;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(---, #a7b4cc);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
 }

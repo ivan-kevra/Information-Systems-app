@@ -1,33 +1,33 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: 100%;
+
+  .inputContainer {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     gap: 5px;
+    align-items: center;
+    background: var(---, #f6f6f9);
+    padding: 17px 18px;
     width: 100%;
 
-    .inputContainer {
-        position: relative;
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        background: var(---, #F6F6F9);
-        padding: 17px 18px;
-        width: 100%;
+    .input {
+      all: unset;
+      color: var(---, #272a33);
 
-        .input {
-            all: unset;
-            color: var(---, #272A33);
-
-            &::placeholder {
-                color: var(---, #D4D7DB);
-            }
-        }
-
-        .showPassword {
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 18px;
-        }
+      &::placeholder {
+        color: var(---, #d4d7db);
+      }
     }
+
+    .showPassword {
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 18px;
+    }
+  }
 }
