@@ -69,7 +69,9 @@ export const Profile = () => {
         </div>
         <Typography variant={'h2'}>Профиль</Typography>
       </div>
+
       <div className={styles.content}>
+
         <div className={styles.photoAndName}>
           <img src={photo} />
           <div className={styles.name}>
@@ -82,6 +84,7 @@ export const Profile = () => {
             <Button className={styles.button}>Пользователь</Button>
           </div>
         </div>
+        <div className={styles.line}></div>
         <div className={styles.profileData}>
           <Typography style={{ color: '#272A33' }} variant={'s1'}>
             Личные данные
@@ -130,6 +133,7 @@ export const Profile = () => {
           Сохранить
         </Button>
       </div>
+
       <Footer />
     </div>
   )
@@ -161,6 +165,7 @@ const Contacts = () => {
   const [isEditContactsAvailable, setIsEditContactsAvailable] = useState(false)
   return (
     <div className={styles.profileData}>
+      <div className={styles.line}></div>
       <div className={styles.profileDataHeader}>
         <Typography style={{ color: '#272A33' }} variant={'s1'}>
           Контакты
@@ -240,9 +245,10 @@ const Passwords = () => {
 
   return (
     <div className={styles.profileData}>
+      <div className={styles.line}></div>
       <div className={styles.profileDataHeader}>
         <Typography style={{ color: '#272A33' }} variant={'s1'}>
-          Контакты
+          Пароль
         </Typography>
         {isEditPasswordAvailable ? (
           <Button

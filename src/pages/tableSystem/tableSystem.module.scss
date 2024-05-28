@@ -69,7 +69,7 @@
           justify-content: center;
           align-items: center;
           gap: 10px;
-          color: var(---, #6e7686);
+          color: var(--grey-300, #6e7686);
           /* Подзаголовок/S2 */
           font-family: Inter;
           font-size: 18px;
@@ -148,8 +148,7 @@
         align-items: center;
         gap: 20px;
 
-        .icon {
-        }
+        .icon {}
       }
     }
   }

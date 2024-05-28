@@ -1,11 +1,14 @@
 import { authReducer } from '@/pages/login/login.slice'
 import { profileReducer } from '@/pages/profile/profile.slice'
+import { tableSystemreducer } from '@/pages/tableSystem/tableSystem.slice'
+
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     profile: profileReducer,
+    table: tableSystemreducer
   },
 })
 

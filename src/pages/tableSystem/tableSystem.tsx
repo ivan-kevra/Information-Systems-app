@@ -14,13 +14,20 @@ import { Pagination } from '@/components/pagination/pagination'
 import { TextField } from '@/components/textField'
 import { Typography } from '@/components/typography'
 
-import styles from './personalArea.module.scss'
+import styles from './tableSystem.module.scss'
+import { useDispatch } from 'react-redux'
+import { tableSystemActions } from './tableSystem.slice'
 
-export const PersonalArea = () => {
+export const TableSystem = () => {
+  const dispatch = useDispatch()
   const [activeItem, setActiveItem] = useState('Реестры')
 
   const changeActiveItem = (item: string) => {
     setActiveItem(item)
+  }
+
+  const addItemHandler = () => {
+    dispatch(tableSystemActions.addItem({ bookmarkNotes: 0, bookNotes: 0, serverNotes: 0, title: 'Новое АИС' }))
   }
 
   return (
@@ -96,7 +103,7 @@ export const PersonalArea = () => {
               <img src={infoIcon} />
               Доп сведения ИС/ИР
             </Button>
-            <Button className={styles.addButton}>
+            <Button className={styles.addButton} onClick={addItemHandler}>
               <img src={plusIcon} />
               Добавить
             </Button>

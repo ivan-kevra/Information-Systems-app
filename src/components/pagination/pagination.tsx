@@ -1,6 +1,5 @@
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 
-import { AisList } from '@/app/data'
 import { DoubleArrowRight } from '@/assets/icons/DoubleArrowRight'
 import { ArrowLeft } from '@/assets/icons/arrowLeft'
 import { ArrowRight } from '@/assets/icons/arrowRight'
@@ -13,10 +12,16 @@ import styles from './pagination.module.scss'
 
 import { Button } from '../button'
 import { Typography } from '../typography'
+import { useSelector } from 'react-redux'
+import { AppRootStateType } from '@/app/store'
 
 export const Pagination = () => {
+
+  const AisList = useSelector((state: AppRootStateType) => state.table.items)
   const [itemsForPage, setItemsForPage] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
+
+
 
   const itemsList = [...AisList, ...AisList, ...AisList]
 
@@ -75,7 +80,7 @@ export const Pagination = () => {
           </div>
         </div>
         <table className={styles.tableContent}>
-          <tbody>
+          <tbody className={styles.tbody}>
             {itemsList.slice(firstIndex, lastIndex).map((item, index) => {
               return (
                 <tr className={styles.tr} key={index}>
@@ -86,21 +91,21 @@ export const Pagination = () => {
                   </td>
                   <td className={styles.td + ' ' + styles.note}>
                     <img src={bookIcon} />
-                    <Typography className={styles.blueText} variant={'s1'}>
+                    <Typography className={item.bookNotes !== 0 ? styles.blueText : ''} variant={'s1'}>
                       {item.bookNotes}
                     </Typography>
                     <ArrowRight />
                   </td>
                   <td className={styles.td + ' ' + styles.note}>
                     <img src={serverIcon} />
-                    <Typography className={styles.blueText} variant={'s1'}>
+                    <Typography className={item.serverNotes !== 0 ? styles.blueText : ''} variant={'s1'}>
                       {item.serverNotes}
                     </Typography>
                     <ArrowRight />
                   </td>
                   <td className={styles.td + ' ' + styles.note}>
                     <img src={bookMark} />
-                    <Typography className={styles.blueText} variant={'s1'}>
+                    <Typography className={item.bookmarkNotes !== 0 ? styles.blueText : ''} variant={'s1'}>
                       {item.bookmarkNotes}
                     </Typography>
                     <ArrowRight />
@@ -202,10 +207,8 @@ const Buttons = ({ currentPage, pagesAmount, setCurrentPage }: ButtonsProps) => 
     visibleNumbers.push(numbers.length - 1)
   }
 
-  // Выбранная видимая страница
   visibleNumbers.push(currentPage)
 
-  // Видимая страница после выбранной
   if (currentPage < numbers.length - 1) {
     visibleNumbers.push(currentPage + 1)
     if (currentPage === 1) {
@@ -220,7 +223,6 @@ const Buttons = ({ currentPage, pagesAmount, setCurrentPage }: ButtonsProps) => 
     }
   }
 
-  // Последняя видимая страница
   if (currentPage !== numbers.length) {
     visibleNumbers.push(numbers.length)
   }
