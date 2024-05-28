@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-type ItemType = {
+import { additionalItems } from './data/additionalItems'
+export type ItemType = {
   bookNotes: number
   bookmarkNotes: number
   serverNotes: number
@@ -22,12 +23,7 @@ const initialState: TableSystemState = {
       serverNotes: 6,
       title: 'АИС «Электронный журнал куратора»',
     },
-    {
-      bookNotes: 7,
-      bookmarkNotes: 0,
-      serverNotes: 0,
-      title: 'АИС SCHOOLS.BY',
-    },
+    { bookNotes: 7, bookmarkNotes: 0, serverNotes: 0, title: 'АИС SCHOOLS.BY' },
     {
       bookNotes: 44,
       bookmarkNotes: 78,
@@ -46,12 +42,7 @@ const initialState: TableSystemState = {
       serverNotes: 23,
       title: 'АИС "Общереспубликанский банк данных участников централизованного тестирования',
     },
-    {
-      bookNotes: 4,
-      bookmarkNotes: 0,
-      serverNotes: 0,
-      title: 'Управление контингентом студентов',
-    },
+    { bookNotes: 4, bookmarkNotes: 0, serverNotes: 0, title: 'Управление контингентом студентов' },
     {
       bookNotes: 29,
       bookmarkNotes: 87,
@@ -297,14 +288,13 @@ const initialState: TableSystemState = {
       serverNotes: 48,
       title: 'Система автоматизации бизнес-процессов и управления workflows',
     },
-
     {
       bookNotes: 31,
       bookmarkNotes: 113,
       serverNotes: 42,
       title: 'Облачное решение для управления активами и эксплуатацией',
     },
-  ],
+    ...additionalItems],
 }
 
 const slice = createSlice({
@@ -313,6 +303,16 @@ const slice = createSlice({
   reducers: {
     addItem: (state, action: PayloadAction<ItemType>) => {
       state.items.unshift(action.payload)
+    },
+    searchItem: (state, action: PayloadAction<string>) => {
+      let index = 0
+      while (index < state.items.length) {
+        if (!state.items[index].title.includes(action.payload)) {
+          state.items.splice(index, 1)
+        } else {
+          index++
+        }
+      }
     },
   },
 })

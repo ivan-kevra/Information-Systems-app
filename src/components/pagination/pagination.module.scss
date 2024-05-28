@@ -52,7 +52,7 @@
             display: flex;
             padding: 10px;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: space-between;
             gap: 5px;
             border-radius: 2px;
             background: var(---, #fff);
@@ -95,6 +95,8 @@
     border: 1px solid var(--grey-100, #ededf4);
     width: 50%;
     margin: 0 auto;
+    height: 50px;
+    ;
 
     .button {
       width: 40px;

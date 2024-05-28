@@ -37,6 +37,11 @@ export const TableSystem = () => {
     )
   }
 
+  const [itemName, setItemName] = useState('')
+  const searchItemNameHandler = () => {
+    dispatch(tableSystemActions.searchItem(itemName))
+  }
+
   return (
     <div className={styles.container}>
       <Header />
@@ -95,10 +100,14 @@ export const TableSystem = () => {
               className={styles.input}
               placeholder={'Выберите ИС/СР для внесения метаданных...'}
               variant={'search'}
+              value={itemName}
+              onChange={e => setItemName(e.target.value)}
             />
           </div>
 
-          <Button className={styles.button}>Показать</Button>
+          <Button className={styles.button} onClick={searchItemNameHandler}>
+            Показать
+          </Button>
         </div>
         <div className={styles.buttonsContainer}>
           <div className={styles.buttons}>

@@ -16,11 +16,9 @@ import { useSelector } from 'react-redux'
 import { AppRootStateType } from '@/app/store'
 
 export const Pagination = () => {
-  const AisList = useSelector((state: AppRootStateType) => state.table.items)
+  const itemsList = useSelector((state: AppRootStateType) => state.table.items)
   const [itemsForPage, setItemsForPage] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
-
-  const itemsList = [...AisList, ...AisList, ...AisList]
 
   const pagesAmount = Math.ceil(itemsList.length / itemsForPage)
 
