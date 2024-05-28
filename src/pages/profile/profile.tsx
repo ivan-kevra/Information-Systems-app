@@ -17,10 +17,24 @@ import { useState } from 'react'
 export const Profile = () => {
   const dispatch = useDispatch()
 
-  const { name, familyName, fatherName, identificationCode, login, mail, phone, password } =
-    useSelector((state: AppRootStateType) => state.profile)
+  const name = useSelector((state: AppRootStateType) => state.profile.name)
+  const familyName = useSelector((state: AppRootStateType) => state.profile.familyName)
+  const fatherName = useSelector((state: AppRootStateType) => state.profile.fatherName)
+  const login = useSelector((state: AppRootStateType) => state.profile.login)
+  const identificationCode = useSelector(
+    (state: AppRootStateType) => state.profile.identificationCode
+  )
 
   const handleProfileUpdate = () => {
+    if (
+      editName === '' ||
+      editFamilyName === '' ||
+      editLogin === '' ||
+      editIdentificationCode === ''
+    ) {
+      alert('Личные данные не введены')
+      return
+    }
     dispatch(
       profileActions.updateProfile({
         name: editName,
@@ -30,27 +44,14 @@ export const Profile = () => {
         identificationCode: editIdentificationCode,
       })
     )
+    alert('Личные данные обновлены')
   }
-
-  const handleContactsUpdate = () => {
-    dispatch(
-      profileActions.updateProfile({
-        mail: editMail,
-        phone: editPhone,
-      })
-    )
-    setIsEditContactsAvailable(false)
-  }
-
-  const [isEditContactsAvailable, setIsEditContactsAvailable] = useState(false)
 
   const [editName, setEditName] = useState(name)
   const [editFamilyName, setEditFamilyName] = useState(familyName)
   const [editFatherName, setEditFatherName] = useState(fatherName)
   const [editLogin, setEditLogin] = useState(login)
   const [editIdentificationCode, setEditIdentificationCode] = useState(identificationCode)
-  const [editMail, setEditMail] = useState(mail)
-  const [editPhone, setEditPhone] = useState(phone)
 
   return (
     <div className={styles.container}>
@@ -123,45 +124,7 @@ export const Profile = () => {
             />
           </div>
         </div>
-        <div className={styles.profileData}>
-          <div className={styles.profileDataHeader}>
-            <Typography style={{ color: '#272A33' }} variant={'s1'}>
-              Контакты
-            </Typography>
-            {isEditContactsAvailable ? (
-              <Button style={{ width: '100px' }} variant={'text'} onClick={handleContactsUpdate}>
-                Сохранить
-              </Button>
-            ) : (
-              <Button
-                style={{ width: '100px' }}
-                variant={'text'}
-                onClick={() => setIsEditContactsAvailable(true)}
-              >
-                Редактировать
-              </Button>
-            )}
-          </div>
-
-          <div className={styles.inputs}>
-            <div className={styles.names}>
-              <TextField
-                label={'Адрес электронной почты'}
-                placeholder={'agsr@mail.ru'}
-                value={editMail}
-                onChange={e => setEditMail(e.target.value)}
-                disabled={!isEditContactsAvailable}
-              />
-              <TextField
-                label={'Мобильный номер*'}
-                placeholder={'+375 29 123 44 55'}
-                value={editPhone}
-                onChange={e => setEditPhone(e.target.value)}
-                disabled={!isEditContactsAvailable}
-              />
-            </div>
-          </div>
-        </div>
+        <Contacts />
         <Passwords />
         <Button className={styles.saveButton} onClick={handleProfileUpdate}>
           Сохранить
@@ -172,9 +135,80 @@ export const Profile = () => {
   )
 }
 
+const Contacts = () => {
+  const dispatch = useDispatch()
+  const mail = useSelector((state: AppRootStateType) => state.profile.mail)
+
+  const phone = useSelector((state: AppRootStateType) => state.profile.phone)
+
+  const handleContactsUpdate = () => {
+    if (editPhone === '') {
+      alert('Мобильный номер должен быть указан')
+      return
+    }
+    dispatch(
+      profileActions.updateProfile({
+        mail: editMail,
+        phone: editPhone,
+      })
+    )
+    alert('Контакты обновлены')
+    setIsEditContactsAvailable(false)
+  }
+  const [editMail, setEditMail] = useState(mail)
+  const [editPhone, setEditPhone] = useState(phone)
+
+  const [isEditContactsAvailable, setIsEditContactsAvailable] = useState(false)
+  return (
+    <div className={styles.profileData}>
+      <div className={styles.profileDataHeader}>
+        <Typography style={{ color: '#272A33' }} variant={'s1'}>
+          Контакты
+        </Typography>
+        {isEditContactsAvailable ? (
+          <Button
+            style={{ width: '100px', padding: '5px 10px' }}
+            variant={'blue'}
+            onClick={handleContactsUpdate}
+          >
+            Сохранить
+          </Button>
+        ) : (
+          <Button
+            style={{ width: '100px' }}
+            variant={'text'}
+            onClick={() => setIsEditContactsAvailable(true)}
+          >
+            Редактировать
+          </Button>
+        )}
+      </div>
+
+      <div className={styles.inputs}>
+        <div className={styles.names}>
+          <TextField
+            label={'Адрес электронной почты'}
+            placeholder={'agsr@mail.ru'}
+            value={editMail}
+            onChange={e => setEditMail(e.target.value)}
+            disabled={!isEditContactsAvailable}
+          />
+          <TextField
+            label={'Мобильный номер*'}
+            placeholder={'+375 29 123 44 55'}
+            value={editPhone}
+            onChange={e => setEditPhone(e.target.value)}
+            disabled={!isEditContactsAvailable}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const Passwords = () => {
   const dispatch = useDispatch()
-  const { password } = useSelector((state: AppRootStateType) => state.profile)
+  const password = useSelector((state: AppRootStateType) => state.profile.password)
 
   const [isEditPasswordAvailable, setIsEditPasswordAvailable] = useState(false)
   const [editPassword, setEditPassword] = useState('')
@@ -211,7 +245,11 @@ const Passwords = () => {
           Контакты
         </Typography>
         {isEditPasswordAvailable ? (
-          <Button style={{ width: '100px', padding: '5px 10px' }} variant={'blue'} onClick={handlePasswordUpdate}>
+          <Button
+            style={{ width: '100px', padding: '5px 10px' }}
+            variant={'blue'}
+            onClick={handlePasswordUpdate}
+          >
             Сохранить
           </Button>
         ) : (
@@ -227,7 +265,7 @@ const Passwords = () => {
       <TextField
         className={styles.oneInput}
         label={'Текущий пароль'}
-        placeholder={isEditPasswordAvailable ? '**********' : 'Введите текущий пароль'}
+        placeholder={!isEditPasswordAvailable ? '**********' : 'Введите текущий пароль'}
         variant={'password'}
         value={editPassword}
         onChange={e => setEditPassword(e.target.value)}
@@ -237,14 +275,14 @@ const Passwords = () => {
         <div className={styles.names}>
           <TextField
             label={'Новый пароль'}
-            placeholder={isEditPasswordAvailable ? '**********' : 'Введите новый пароль'}
+            placeholder={!isEditPasswordAvailable ? '**********' : 'Введите новый пароль'}
             variant={'password'}
             value={newPassword}
             onChange={e => setNewPassword(e.target.value)}
           />
           <TextField
             label={'Подтвердите пароль*'}
-            placeholder={isEditPasswordAvailable ? '**********' : 'Подтвердите новый пароль'}
+            placeholder={!isEditPasswordAvailable ? '**********' : 'Подтвердите новый пароль'}
             variant={'password'}
             value={repeatNewPassword}
             onChange={e => setRepeatNewPassword(e.target.value)}

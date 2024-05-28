@@ -13,7 +13,7 @@ type ProfileState = {
 const initialState: ProfileState = {
   name: 'Имя',
   familyName: 'Фамилия',
-  fatherName: 'Отчество',
+  fatherName: '',
   identificationCode: '1234455РВ88',
   login: 'login',
   mail: '',
