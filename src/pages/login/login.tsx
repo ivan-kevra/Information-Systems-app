@@ -21,7 +21,7 @@ export const Login = () => {
   const isAuthenticated = useSelector((state: AppRootStateType) => state.auth.isAuthenticated)
 
   useEffect(() => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
 
     if (token) {
       const decoded: any = jwtDecode(token)
@@ -45,7 +45,7 @@ export const Login = () => {
         name: decoded.given_name,
       })
     )
-    sessionStorage.setItem('token', credentialResponse.credential)
+    localStorage.setItem('token', credentialResponse.credential)
   }
 
   if (isAuthenticated) {

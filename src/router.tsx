@@ -8,7 +8,7 @@ import {
 import { Login } from './pages/login/login'
 
 import { Profile } from './pages/profile/profile'
-import { TableSystem } from './pages/tableSystem/tableSystem'
+import { PersonalArea } from './pages/tableSystem/personalArea'
 import { AppRootStateType } from './app/store'
 import { useSelector } from 'react-redux'
 import { MainPage } from './pages/mainPage/mainPage'
@@ -30,8 +30,8 @@ const privateRoutes: RouteObject[] = [
     element: <Profile />,
   },
   {
-    path: '/tableSystem',
-    element: <TableSystem />,
+    path: '/personalArea',
+    element: <PersonalArea />,
   },
 ]
 

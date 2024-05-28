@@ -14,9 +14,9 @@ import { Pagination } from '@/components/pagination/pagination'
 import { TextField } from '@/components/textField'
 import { Typography } from '@/components/typography'
 
-import styles from './tableSystem.module.scss'
+import styles from './personalArea.module.scss'
 
-export const TableSystem = () => {
+export const PersonalArea = () => {
   const [activeItem, setActiveItem] = useState('Реестры')
 
   const changeActiveItem = (item: string) => {
