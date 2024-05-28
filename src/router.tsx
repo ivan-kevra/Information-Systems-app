@@ -11,8 +11,13 @@ import { Profile } from './pages/profile/profile'
 import { TableSystem } from './pages/tableSystem/tableSystem'
 import { AppRootStateType } from './app/store'
 import { useSelector } from 'react-redux'
+import { MainPage } from './pages/mainPage/mainPage'
 
 const publicRoutes: RouteObject[] = [
+  {
+    path: '/',
+    element: <MainPage />,
+  },
   {
     path: '/login',
     element: <Login />,
@@ -21,7 +26,7 @@ const publicRoutes: RouteObject[] = [
 
 const privateRoutes: RouteObject[] = [
   {
-    path: '/',
+    path: '/profile',
     element: <Profile />,
   },
   {
