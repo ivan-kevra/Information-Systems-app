@@ -48,38 +48,40 @@ export const Pagination = () => {
           </div>
         </div>
         <table className={styles.tableContent}>
-          {AisList.map((item, index) => {
-            return (
-              <tr className={styles.tr} key={index}>
-                <td className={styles.title}>
-                  <Typography className={styles.text} variant={'h4'}>
-                    {item.title}
-                  </Typography>
-                </td>
-                <td className={styles.td + ' ' + styles.note}>
-                  <img src={bookIcon} />
-                  <Typography className={styles.blueText} variant={'s1'}>
-                    {item.bookNotes}
-                  </Typography>
-                  <ArrowRight />
-                </td>
-                <td className={styles.td + ' ' + styles.note}>
-                  <img src={serverIcon} />
-                  <Typography className={styles.blueText} variant={'s1'}>
-                    {item.serverNotes}
-                  </Typography>
-                  <ArrowRight />
-                </td>
-                <td className={styles.td + ' ' + styles.note}>
-                  <img src={bookMark} />
-                  <Typography className={styles.blueText} variant={'s1'}>
-                    {item.bookmarkNotes}
-                  </Typography>
-                  <ArrowRight />
-                </td>
-              </tr>
-            )
-          })}
+          <tbody>
+            {AisList.map((item, index) => {
+              return (
+                <tr className={styles.tr} key={index}>
+                  <td className={styles.title}>
+                    <Typography className={styles.text} variant={'h4'}>
+                      {item.title}
+                    </Typography>
+                  </td>
+                  <td className={styles.td + ' ' + styles.note}>
+                    <img src={bookIcon} />
+                    <Typography className={styles.blueText} variant={'s1'}>
+                      {item.bookNotes}
+                    </Typography>
+                    <ArrowRight />
+                  </td>
+                  <td className={styles.td + ' ' + styles.note}>
+                    <img src={serverIcon} />
+                    <Typography className={styles.blueText} variant={'s1'}>
+                      {item.serverNotes}
+                    </Typography>
+                    <ArrowRight />
+                  </td>
+                  <td className={styles.td + ' ' + styles.note}>
+                    <img src={bookMark} />
+                    <Typography className={styles.blueText} variant={'s1'}>
+                      {item.bookmarkNotes}
+                    </Typography>
+                    <ArrowRight />
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
         </table>
       </div>
       <Buttons />

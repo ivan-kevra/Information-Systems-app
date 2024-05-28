@@ -28,13 +28,18 @@ export const Header = () => {
 
         <div className={styles.profile}>
           <img src={userPhoto} />
-          {isAuthenticated ? <Typography variant={'body1'}>{name} {familyName}</Typography> : <Link to={'/login'} style={{ textDecoration: 'none' }}>
-            <Typography variant={'body1'}>Вход в аккаунт</Typography>
-          </Link>}
+          {isAuthenticated ? (
+            <Typography variant={'body1'}>
+              {name} {familyName}
+            </Typography>
+          ) : (
+            <Link to={'/login'} style={{ textDecoration: 'none' }}>
+              <Typography variant={'body1'}>Вход в аккаунт</Typography>
+            </Link>
+          )}
 
           <img src={arrowDown} />
         </div>
-
       </div>
     </div>
   )
