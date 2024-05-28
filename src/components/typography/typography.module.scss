@@ -1,72 +1,40 @@
-.body1 {
-  font-size: 16px;
-  font-style: normal;
-  line-height: normal;
-}
-
 .body2 {
   font-size: 14px;
-  font-style: normal;
-  line-height: normal;
-  text-decoration: none;
 }
 
 .h1 {
-  color: var(---, #272a33);
-
-  /* Заголовок / H1 */
-  font-family: Inter;
+  color: var(--grey-900, #272a33);
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
 }
 
 .h2 {
-  color: var(---, #272a33);
-
-  /* Заголовок/H2 */
-  font-family: Inter;
+  color: var(--grey-900, #272a33);
   font-size: 36px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
 }
 
 .h3 {
-  color: var(---, #272a33);
-
-  /* Заголовок/H3 */
-  font-family: Inter;
+  color: var(--grey-900, #272a33);
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .h4 {
-  color: var(---, #272a33);
-  /* Заголовок/H4 */
+  color: var(--grey-900, #272a33);
   font-size: 20px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
+
 }
 
 .s1 {
   color: var(--grey-300, #6e7686);
-
-  /* Подзаголовок/S1 */
   font-size: 18px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
+
 }
 
 .b1 {
-  color: var(---2, #a8aaae);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  color: var(--grey-500, #a8aaae);
+
 }
