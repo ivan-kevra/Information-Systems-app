@@ -192,7 +192,9 @@ const Contacts = () => {
         <div className={styles.names}>
           <TextField
             label={'Адрес электронной почты'}
-            placeholder={isEditContactsAvailable ? 'Введите адрес электронной почты' : 'agsr@mail.ru'}
+            placeholder={
+              isEditContactsAvailable ? 'Введите адрес электронной почты' : 'agsr@mail.ru'
+            }
             value={editMail}
             onChange={e => setEditMail(e.target.value)}
             disabled={!isEditContactsAvailable}
