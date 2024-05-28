@@ -54,14 +54,10 @@
         .button {
           width: 118px;
           padding: 5px 10px;
-          color: var(---, #fff);
-
-          /* Тело текст/B2 */
-          font-family: Inter;
+          color: var(--background, #fff);
           font-size: 14px;
-          font-style: normal;
           font-weight: 500;
-          line-height: normal;
+
         }
       }
     }
@@ -105,7 +101,7 @@
 .yellowText {
   padding: 5px 10px;
   gap: 10px;
-  color: var(---, #22b07d);
+  color: #22b07d;
   border-radius: 5px;
   background: #eafbf5;
   width: 89px;
@@ -119,5 +115,5 @@
   width: 90%;
   height: 1px;
   border-radius: 3px;
-  background: var(--grey-100, #EDEDF4);
+  background: var(--grey-100, #ededf4);
 }

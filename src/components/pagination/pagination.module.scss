@@ -42,9 +42,7 @@
 
             .text {
               white-space: nowrap;
-              /* Запрещаем перенос строк */
               overflow: hidden;
-              /* Обрезаем все, что не помещается в область */
               text-overflow: ellipsis;
             }
           }
@@ -62,10 +60,13 @@
             .blueText {
               color: var(---40, #13a3b9);
             }
+
+            .blackText {
+              color: var(--grey-900, #272A33);
+            }
           }
         }
       }
-
     }
   }
 
@@ -83,7 +84,6 @@
     border-radius: 5px;
     background: var(---40, #13a3b9);
     font-size: 16px;
-
   }
 
   .buttons {
@@ -105,7 +105,6 @@
       justify-content: center;
       color: var(---1, #676a71);
       font-size: 16px;
-
     }
 
     .activeButton {
@@ -118,7 +117,6 @@
       align-items: center;
       justify-content: center;
       font-size: 16px;
-
     }
   }
 }

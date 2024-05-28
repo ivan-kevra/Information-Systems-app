@@ -43,21 +43,16 @@ export const MainPage = () => {
       <Header />
       <div className={styles.content}>
         <Typography variant={'h1'}>Главная страница</Typography>
-
-        <Typography variant={'body1'}>
+        <Typography>
           В задании не было главной страницы и я решил сделать ее для удобства в навигации между
           страницами
         </Typography>
 
         <div className={styles.links}>
-          <Link className={styles.link} to={'/personalArea'}>
-            Личный кабинет
-          </Link>
-          <Link className={styles.link} to={'/profile'}>
-            Профиль
-          </Link>
+          <Link to={'/personalArea'}>Личный кабинет</Link>
+          <Link to={'/profile'}>Профиль</Link>
           {isAuthenticated && (
-            <Link className={styles.link} onClick={logout} to={'/login'}>
+            <Link onClick={logout} to={'/login'}>
               Выйти из аккаунта
             </Link>
           )}

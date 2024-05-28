@@ -16,12 +16,9 @@ import { useSelector } from 'react-redux'
 import { AppRootStateType } from '@/app/store'
 
 export const Pagination = () => {
-
   const AisList = useSelector((state: AppRootStateType) => state.table.items)
   const [itemsForPage, setItemsForPage] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
-
-
 
   const itemsList = [...AisList, ...AisList, ...AisList]
 
@@ -91,21 +88,30 @@ export const Pagination = () => {
                   </td>
                   <td className={styles.td + ' ' + styles.note}>
                     <img src={bookIcon} />
-                    <Typography className={item.bookNotes !== 0 ? styles.blueText : ''} variant={'s1'}>
+                    <Typography
+                      className={item.bookNotes !== 0 ? styles.blueText : styles.blackText}
+                      variant={'s1'}
+                    >
                       {item.bookNotes}
                     </Typography>
                     <ArrowRight />
                   </td>
                   <td className={styles.td + ' ' + styles.note}>
                     <img src={serverIcon} />
-                    <Typography className={item.serverNotes !== 0 ? styles.blueText : ''} variant={'s1'}>
+                    <Typography
+                      className={item.serverNotes !== 0 ? styles.blueText : styles.blackText}
+                      variant={'s1'}
+                    >
                       {item.serverNotes}
                     </Typography>
                     <ArrowRight />
                   </td>
                   <td className={styles.td + ' ' + styles.note}>
                     <img src={bookMark} />
-                    <Typography className={item.bookmarkNotes !== 0 ? styles.blueText : ''} variant={'s1'}>
+                    <Typography
+                      className={item.bookmarkNotes !== 0 ? styles.blueText : styles.blackText}
+                      variant={'s1'}
+                    >
                       {item.bookmarkNotes}
                     </Typography>
                     <ArrowRight />

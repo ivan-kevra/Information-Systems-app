@@ -8,7 +8,7 @@ type Props<T extends ElementType> = {
   as?: T
   children?: ReactNode
   className?: string
-  variant: 'b1' | 'body1' | 'body2' | 'h1' | 'h2' | 'h3' | 'h4' | 's1'
+  variant?: 'b1' | 'body1' | 'body2' | 'h1' | 'h2' | 'h3' | 'h4' | 's1'
 }
 
 export const Typography = <T extends ElementType = 'p'>(

@@ -21,32 +21,29 @@ export const Header = () => {
     <div className={styles.container}>
       <img src={logo} />
       <div className={styles.nav}>
-        <Typography variant={'body1'}>Меню</Typography>
-        <Typography variant={'body1'}>Вопросы и ответы</Typography>
-        <Typography variant={'body1'}>Об АИС</Typography>
+        <Typography>Меню</Typography>
+        <Typography>Вопросы и ответы</Typography>
+        <Typography>Об АИС</Typography>
       </div>
       <div className={styles.profileAndNotifications}>
         {isAuthenticated ? (
           <div className={styles.notesContainer}>
-            <Typography className={styles.notesText} variant={'body1'}>
-              4
-            </Typography>
+            <Typography className={styles.notesText}>4</Typography>
             <img src={blueNotifications} />
           </div>
         ) : (
           <img src={notifications} />
         )}
         <div className={styles.line}></div>
-
         <div className={styles.profile}>
           {isAuthenticated ? <img className={styles.photo} src={photo} /> : <img src={userPhoto} />}
           {isAuthenticated ? (
-            <Typography variant={'body1'}>
+            <>
               {name} {familyName}
-            </Typography>
+            </>
           ) : (
             <Link style={{ textDecoration: 'none' }} to={'/login'}>
-              <Typography variant={'body1'}>Вход в аккаунт</Typography>
+              Вход в аккаунт
             </Link>
           )}
 

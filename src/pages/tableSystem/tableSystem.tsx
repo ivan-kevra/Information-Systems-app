@@ -27,7 +27,14 @@ export const TableSystem = () => {
   }
 
   const addItemHandler = () => {
-    dispatch(tableSystemActions.addItem({ bookmarkNotes: 0, bookNotes: 0, serverNotes: 0, title: 'Новое АИС' }))
+    dispatch(
+      tableSystemActions.addItem({
+        bookmarkNotes: 0,
+        bookNotes: 0,
+        serverNotes: 0,
+        title: 'Новое АИС',
+      })
+    )
   }
 
   return (

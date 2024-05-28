@@ -71,7 +71,6 @@ export const Profile = () => {
       </div>
 
       <div className={styles.content}>
-
         <div className={styles.photoAndName}>
           <img src={photo} />
           <div className={styles.name}>
@@ -193,14 +192,14 @@ const Contacts = () => {
         <div className={styles.names}>
           <TextField
             label={'Адрес электронной почты'}
-            placeholder={'agsr@mail.ru'}
+            placeholder={isEditContactsAvailable ? 'Введите адрес электронной почты' : 'agsr@mail.ru'}
             value={editMail}
             onChange={e => setEditMail(e.target.value)}
             disabled={!isEditContactsAvailable}
           />
           <TextField
             label={'Мобильный номер*'}
-            placeholder={'+375 29 123 44 55'}
+            placeholder={isEditContactsAvailable ? 'Введите номер телефона' : '+375 29 123 44 55'}
             value={editPhone}
             onChange={e => setEditPhone(e.target.value)}
             disabled={!isEditContactsAvailable}
