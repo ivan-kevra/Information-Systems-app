@@ -2,13 +2,14 @@
 
 Запуск проекта:
 
-npm: 
-  npm install
-  npm start
+pnpm: 
+  pnpm install
+  pnpm run dev
 
 yarn: 
   yarn install
   yarn run dev
-pnpm: 
-  pnpm install
-  pnpm run dev
+
+npm: 
+  npm install
+  npm run dev
