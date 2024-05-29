@@ -1,20 +1,20 @@
 # React + TypeScript + Vite
 
-Запуск проекта:
+# Запуск проекта:
 
-pnpm: 
+# pnpm: 
 
   pnpm install
   
   pnpm run dev
 
-yarn: 
+# yarn: 
 
   yarn install
   
   yarn run dev
 
-npm: 
+# npm: 
 
   npm install
   
