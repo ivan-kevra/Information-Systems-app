@@ -17,6 +17,7 @@
     .input {
       all: unset;
       color: var(--grey-900, #272a33);
+      width: 100%;
 
       &::placeholder {
         color: var(#d4d7db);

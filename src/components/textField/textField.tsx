@@ -18,11 +18,9 @@ export type Props = {
 export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const {
     className,
-    errorMessage,
     label = "",
     onValueChange,
     placeholder,
-    type,
     variant = "default",
     ...restProps
   } = props;
