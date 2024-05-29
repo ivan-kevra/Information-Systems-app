@@ -1,7 +1,7 @@
-import { Button } from '../button'
-import { Typography } from '../typography'
-import styles from './footer.module.scss'
-import logo from '@/assets/icons/logo.svg'
+import { Button } from "../button";
+import { Typography } from "../typography";
+import styles from "./footer.module.scss";
+import logo from "@/assets/icons/logo.svg";
 
 export const Footer = () => {
   return (
@@ -28,29 +28,56 @@ export const Footer = () => {
             <Button variant="text">Связаться с поддержкой</Button>
           </div>
         </div>
-        <div className={styles.item} style={{ paddingLeft: '25px' }}>
+        <div className={styles.item} style={{ paddingLeft: "25px" }}>
           <Typography variant="h4">Контакты</Typography>
           <div className={styles.numbers}>
             <Typography variant="body2">+375 29 222 44 88 </Typography>
             <Typography variant="body2">dev@agsr.by</Typography>
-            <Typography variant="body2">г. Минск, ул. К.Цеткин, д. 24-705</Typography>
+            <Typography variant="body2">
+              г. Минск, ул. К.Цеткин, д. 24-705
+            </Typography>
           </div>
         </div>
       </div>
       <div className={styles.partners}>
         <div className={styles.line}></div>
         <div className={styles.elements}>
-          <Button as="a" href="https://brrb.by/" variant="link" className={styles.bank} />
-          <Button as="a" href="https://google.com/" variant="link" className={styles.partner}>
+          <Button
+            as="a"
+            href="https://brrb.by/"
+            variant="link"
+            className={styles.bank}
+          />
+          <Button
+            as="a"
+            href="https://google.com/"
+            variant="link"
+            className={styles.partner}
+          >
             Условный партнер
           </Button>
-          <Button as="a" href="https://google.com/" variant="link" className={styles.partner}>
+          <Button
+            as="a"
+            href="https://google.com/"
+            variant="link"
+            className={styles.partner}
+          >
             Условный партнер
           </Button>
-          <Button as="a" href="https://google.com/" variant="link" className={styles.partner}>
+          <Button
+            as="a"
+            href="https://google.com/"
+            variant="link"
+            className={styles.partner}
+          >
             Условный партнер
           </Button>
-          <Button as="a" href="https://google.com/" variant="link" className={styles.partner}>
+          <Button
+            as="a"
+            href="https://google.com/"
+            variant="link"
+            className={styles.partner}
+          >
             Условный партнер
           </Button>
         </div>
@@ -58,11 +85,11 @@ export const Footer = () => {
           <div className={styles.line}></div>
           <Typography variant="body2" className={styles.body2}>
             © АИС «Реестры» <br />
-            Разработчк: ОАО «Агентство сервисизации и реинжиниринга» (г. Минск, ул. К. Цеткин,
-            д. 24–705 dev@agsr.by)
+            Разработчк: ОАО «Агентство сервисизации и реинжиниринга» (г. Минск,
+            ул. К. Цеткин, д. 24–705 dev@agsr.by)
           </Typography>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
