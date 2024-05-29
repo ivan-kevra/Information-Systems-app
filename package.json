@@ -23,9 +23,6 @@
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
-    "@it-incubator/eslint-config": "^1.0.2",
-    "@it-incubator/prettier-config": "^0.1.2",
-    "@it-incubator/stylelint-config": "^2.0.0",
     "@types/node": "^20.12.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
