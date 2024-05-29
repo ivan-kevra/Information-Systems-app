@@ -1,24 +1,24 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 type ProfileState = {
-  name: string
   familyName: string
   fatherName: string
   identificationCode: string
   login: string
   mail: string
-  phone: string
+  name: string
   password: string
+  phone: string
 }
 const initialState: ProfileState = {
-  name: 'Имя',
   familyName: 'Фамилия',
   fatherName: '',
   identificationCode: '1234455РВ88',
   login: 'login',
   mail: '',
-  phone: '',
+  name: 'Имя',
   password: '1234',
+  phone: '',
 }
 
 const slice = createSlice({

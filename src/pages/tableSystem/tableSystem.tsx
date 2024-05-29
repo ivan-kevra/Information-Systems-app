@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { ArrowLeft } from '@/assets/icons/arrowLeft'
@@ -15,7 +16,7 @@ import { TextField } from '@/components/textField'
 import { Typography } from '@/components/typography'
 
 import styles from './tableSystem.module.scss'
-import { useDispatch } from 'react-redux'
+
 import { tableSystemActions } from './tableSystem.slice'
 
 export const TableSystem = () => {
@@ -29,8 +30,8 @@ export const TableSystem = () => {
   const addItemHandler = () => {
     dispatch(
       tableSystemActions.addItem({
-        bookmarkNotes: 0,
         bookNotes: 0,
+        bookmarkNotes: 0,
         serverNotes: 0,
         title: 'Новое АИС',
       })
@@ -98,10 +99,10 @@ export const TableSystem = () => {
             <Typography variant={'s1'}>Выбор ИС/СР для внесения метаданных</Typography>
             <TextField
               className={styles.input}
-              placeholder={'Выберите ИС/СР для внесения метаданных...'}
-              variant={'search'}
-              value={itemName}
               onChange={e => setItemName(e.target.value)}
+              placeholder={'Выберите ИС/СР для внесения метаданных...'}
+              value={itemName}
+              variant={'search'}
             />
           </div>
 

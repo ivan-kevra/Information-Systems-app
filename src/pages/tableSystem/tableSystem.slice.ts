@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+
 import { additionalItems } from './data/additionalItems'
 export type ItemType = {
   bookNotes: number
@@ -294,7 +295,8 @@ const initialState: TableSystemState = {
       serverNotes: 42,
       title: 'Облачное решение для управления активами и эксплуатацией',
     },
-    ...additionalItems],
+    ...additionalItems,
+  ],
 }
 
 const slice = createSlice({
@@ -306,8 +308,9 @@ const slice = createSlice({
     },
     searchItem: (state, action: PayloadAction<string>) => {
       let index = 0
+
       while (index < state.items.length) {
-        if (!state.items[index].title.includes(action.payload)) {
+        if (!state.items[index].title.toLowerCase().includes(action.payload.toLowerCase())) {
           state.items.splice(index, 1)
         } else {
           index++

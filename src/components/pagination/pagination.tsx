@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
+import { AppRootStateType } from '@/app/store'
 import { DoubleArrowRight } from '@/assets/icons/DoubleArrowRight'
 import { ArrowLeft } from '@/assets/icons/arrowLeft'
 import { ArrowRight } from '@/assets/icons/arrowRight'
@@ -12,8 +14,6 @@ import styles from './pagination.module.scss'
 
 import { Button } from '../button'
 import { Typography } from '../typography'
-import { useSelector } from 'react-redux'
-import { AppRootStateType } from '@/app/store'
 
 export const Pagination = () => {
   const itemsList = useSelector((state: AppRootStateType) => state.table.items)

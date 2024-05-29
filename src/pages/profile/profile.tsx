@@ -1,5 +1,8 @@
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { AppRootStateType } from '@/app/store'
 import { ArrowLeft } from '@/assets/icons/arrowLeft'
 import photo from '@/assets/icons/photo.svg'
 import { Button } from '@/components/button'
@@ -9,10 +12,8 @@ import { TextField } from '@/components/textField'
 import { Typography } from '@/components/typography'
 
 import styles from './profile.module.scss'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppRootStateType } from '@/app/store'
+
 import { profileActions } from './profile.slice'
-import { useState } from 'react'
 
 export const Profile = () => {
   const dispatch = useDispatch()
@@ -33,15 +34,16 @@ export const Profile = () => {
       editIdentificationCode === ''
     ) {
       alert('Личные данные не введены')
+
       return
     }
     dispatch(
       profileActions.updateProfile({
-        name: editName,
         familyName: editFamilyName,
         fatherName: editFatherName,
-        login: editLogin,
         identificationCode: editIdentificationCode,
+        login: editLogin,
+        name: editName,
       })
     )
     alert('Личные данные обновлены')
@@ -92,37 +94,37 @@ export const Profile = () => {
             <div className={styles.names}>
               <TextField
                 label={'Имя*'}
+                onChange={e => setEditName(e.target.value)}
                 placeholder={'Введите имя'}
                 value={editName}
-                onChange={e => setEditName(e.target.value)}
               />
               <TextField
                 label={'Фамилия*'}
+                onChange={e => setEditFamilyName(e.target.value)}
                 placeholder={'Введите фамилию'}
                 value={editFamilyName}
-                onChange={e => setEditFamilyName(e.target.value)}
               />
             </div>
             <div className={styles.names}>
               <TextField
                 label={'Отчество'}
+                onChange={e => setEditFatherName(e.target.value)}
                 placeholder={'Введите отчество'}
                 value={editFatherName}
-                onChange={e => setEditFatherName(e.target.value)}
               />
               <TextField
                 label={'Идентификационный номер*'}
+                onChange={e => setEditIdentificationCode(e.target.value)}
                 placeholder={'Введите идентификационный номер'}
                 value={editIdentificationCode}
-                onChange={e => setEditIdentificationCode(e.target.value)}
               />
             </div>
             <TextField
               className={styles.oneInput}
               label={'Логин*'}
+              onChange={e => setEditLogin(e.target.value)}
               placeholder={'Введите логин'}
               value={editLogin}
-              onChange={e => setEditLogin(e.target.value)}
             />
           </div>
         </div>
@@ -147,6 +149,7 @@ const Contacts = () => {
   const handleContactsUpdate = () => {
     if (editPhone === '') {
       alert('Мобильный номер должен быть указан')
+
       return
     }
     dispatch(
@@ -162,6 +165,7 @@ const Contacts = () => {
   const [editPhone, setEditPhone] = useState(phone)
 
   const [isEditContactsAvailable, setIsEditContactsAvailable] = useState(false)
+
   return (
     <div className={styles.profileData}>
       <div className={styles.line}></div>
@@ -171,17 +175,17 @@ const Contacts = () => {
         </Typography>
         {isEditContactsAvailable ? (
           <Button
-            style={{ width: '100px', padding: '5px 10px' }}
-            variant={'blue'}
             onClick={handleContactsUpdate}
+            style={{ padding: '5px 10px', width: '100px' }}
+            variant={'blue'}
           >
             Сохранить
           </Button>
         ) : (
           <Button
+            onClick={() => setIsEditContactsAvailable(true)}
             style={{ width: '100px' }}
             variant={'text'}
-            onClick={() => setIsEditContactsAvailable(true)}
           >
             Редактировать
           </Button>
@@ -191,20 +195,20 @@ const Contacts = () => {
       <div className={styles.inputs}>
         <div className={styles.names}>
           <TextField
+            disabled={!isEditContactsAvailable}
             label={'Адрес электронной почты'}
+            onChange={e => setEditMail(e.target.value)}
             placeholder={
               isEditContactsAvailable ? 'Введите адрес электронной почты' : 'agsr@mail.ru'
             }
             value={editMail}
-            onChange={e => setEditMail(e.target.value)}
-            disabled={!isEditContactsAvailable}
           />
           <TextField
+            disabled={!isEditContactsAvailable}
             label={'Мобильный номер*'}
+            onChange={e => setEditPhone(e.target.value)}
             placeholder={isEditContactsAvailable ? 'Введите номер телефона' : '+375 29 123 44 55'}
             value={editPhone}
-            onChange={e => setEditPhone(e.target.value)}
-            disabled={!isEditContactsAvailable}
           />
         </div>
       </div>
@@ -224,11 +228,13 @@ const Passwords = () => {
   const handlePasswordUpdate = () => {
     if (newPassword === '' || repeatNewPassword === '' || editPassword === '') {
       alert('Данные не введены')
+
       return
     }
 
     if (newPassword !== repeatNewPassword || password !== editPassword) {
       alert('Пароли не совпадают')
+
       return
     }
 
@@ -253,17 +259,17 @@ const Passwords = () => {
         </Typography>
         {isEditPasswordAvailable ? (
           <Button
-            style={{ width: '100px', padding: '5px 10px' }}
-            variant={'blue'}
             onClick={handlePasswordUpdate}
+            style={{ padding: '5px 10px', width: '100px' }}
+            variant={'blue'}
           >
             Сохранить
           </Button>
         ) : (
           <Button
+            onClick={() => setIsEditPasswordAvailable(true)}
             style={{ width: '100px' }}
             variant={'text'}
-            onClick={() => setIsEditPasswordAvailable(true)}
           >
             Редактировать
           </Button>
@@ -271,29 +277,29 @@ const Passwords = () => {
       </div>
       <TextField
         className={styles.oneInput}
-        label={'Текущий пароль'}
-        placeholder={!isEditPasswordAvailable ? '**********' : 'Введите текущий пароль'}
-        variant={'password'}
-        value={editPassword}
-        onChange={e => setEditPassword(e.target.value)}
         disabled={!isEditPasswordAvailable}
+        label={'Текущий пароль'}
+        onChange={e => setEditPassword(e.target.value)}
+        placeholder={!isEditPasswordAvailable ? '**********' : 'Введите текущий пароль'}
+        value={editPassword}
+        variant={'password'}
       />
       <div className={styles.inputs}>
         <div className={styles.names}>
           <TextField
             label={'Новый пароль'}
-            placeholder={!isEditPasswordAvailable ? '**********' : 'Введите новый пароль'}
-            variant={'password'}
-            value={newPassword}
             onChange={e => setNewPassword(e.target.value)}
+            placeholder={!isEditPasswordAvailable ? '**********' : 'Введите новый пароль'}
+            value={newPassword}
+            variant={'password'}
           />
           <TextField
-            label={'Подтвердите пароль*'}
-            placeholder={!isEditPasswordAvailable ? '**********' : 'Подтвердите новый пароль'}
-            variant={'password'}
-            value={repeatNewPassword}
-            onChange={e => setRepeatNewPassword(e.target.value)}
             disabled={!isEditPasswordAvailable}
+            label={'Подтвердите пароль*'}
+            onChange={e => setRepeatNewPassword(e.target.value)}
+            placeholder={!isEditPasswordAvailable ? '**********' : 'Подтвердите новый пароль'}
+            value={repeatNewPassword}
+            variant={'password'}
           />
         </div>
       </div>
